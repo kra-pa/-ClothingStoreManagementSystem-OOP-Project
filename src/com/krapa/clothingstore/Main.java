@@ -67,8 +67,13 @@ public class Main{ // main class
         System.out.println("Item 2 ID: "+cl2.getItemId());
         System.out.println("Item 1 name: "+cl1.getItemName());
         System.out.println("Item 1 price: "+cl1.getItemPrice());
-        System.out.println("Order 1 status: "+ord1.getOrderId());
+        System.out.println("Order 1 status: "+ord1.getStatus());
+        System.out.println("Order 2 customer name: "+ord2.getCustomerName());
         System.out.println("Customer 2 points: "+cus2.getCustomerPoints());
+        System.out.println("Customer 2 name: "+cus2.getCustomerName());
+        System.out.println("Customer 1 preferred size: "+cus1.getPreferredSize());
+        System.out.println("Customer 1 email: "+cus1.getCustomerEmail());
+
         System.out.println();
 
         //Testing setters
@@ -100,8 +105,10 @@ public class Main{ // main class
         System.out.println("Updated: "+ord1);
         System.out.println();
 
-        System.out.println("Updating customer 2 email");
+        System.out.println("Updating customer 2 details");
         cus2.setCustomerEmail("karen998@gmail.com");
+        cus2.setPreferredSize("L");
+        cus2.setPoints(850);
         System.out.println("Updated: "+cus2);
         System.out.println();
 

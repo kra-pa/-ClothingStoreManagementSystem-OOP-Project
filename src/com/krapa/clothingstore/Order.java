@@ -2,6 +2,8 @@ package com.krapa.clothingstore;
 
 //Information about an order (like in ClothingItem)
 
+import java.util.Objects;
+
 public class Order {
     private int orderId;
     private String customerName;
@@ -49,14 +51,8 @@ public class Order {
 
     //Methods with logic
 
-//    public boolean isCompleted(){
-//        return status = "Completed";
-//    }
-//    public boolean isCancelled(){
-//        return status = "Cancelled";
-//    }
     public boolean isPending(){
-        return status=="Pending";
+        return Objects.equals(status, "Pending");
     }
     public void addAmount(double amount){
         this.total+=amount;
@@ -72,8 +68,8 @@ public class Order {
 
     @Override public String toString() {
         return "Order{orderId="+orderId+", " +
-                "customerName=" + customerName +", " +
-                "total='"+total+"', " +
+                "customerName='" + customerName +"', " +
+                "total="+total+", " +
                 "status="+status+"}";
     }
 }

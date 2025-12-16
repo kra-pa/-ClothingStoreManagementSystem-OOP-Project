@@ -64,7 +64,7 @@ public class Customer {
 
     @Override public String toString() {
         return "Customer{customerId="+customerId+", " +
-                "customerName=" + customerName +", " +
+                "customerName='" + customerName +"', " +
                 "preferredSize='"+preferredSize+"', " +
                 "points="+points+", "+
                 "customerEmail='"+customerEmail+"'}";
