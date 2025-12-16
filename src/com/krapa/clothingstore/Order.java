@@ -5,12 +5,12 @@ package com.krapa.clothingstore;
 public class Order {
     private int orderId;
     private String customerName;
-    private int total; //cost
+    private double total; //cost
     private String status;
 
     //Constructor
 
-    public Order(int orderId, String customerName, int total, String status){
+    public Order(int orderId, String customerName, double total, String status){
         this.orderId = orderId;
         this.customerName = customerName;
         this.total = total;
@@ -25,7 +25,7 @@ public class Order {
     public String getCustomerName() {
         return customerName;
     }
-    public int getTotal() {
+    public double getTotal() {
         return total;
     }
     public String getStatus() {
@@ -40,7 +40,7 @@ public class Order {
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
-    public void setTotal(int total) {
+    public void setTotal(double total) {
         this.total = total;
     }
     public void setStatus(String status) {
@@ -49,19 +49,31 @@ public class Order {
 
     //Methods with logic
 
-    public void complete(){
-        this.status = "Order Completed";
+//    public boolean isCompleted(){
+//        return status = "Completed";
+//    }
+//    public boolean isCancelled(){
+//        return status = "Cancelled";
+//    }
+    public boolean isPending(){
+        return status=="Pending";
     }
-    public void cancel(){
-        this.status = "Order Cancelled";
+    public void addAmount(double amount){
+        this.total+=amount;
+    }
+    public void Complete(){
+        this.status = "Completed";
+    }
+    public void Cancel(){
+        this.status = "Cancelled";
     }
 
     //Override
 
     @Override public String toString() {
-        return "Order{orderId='"+orderId+"'," +
-                "customerName=" + customerName +"," +
-                " total='"+total+"', " +
+        return "Order{orderId="+orderId+", " +
+                "customerName=" + customerName +", " +
+                "total='"+total+"', " +
                 "status="+status+"}";
     }
 }

@@ -22,10 +22,13 @@ public class ClothingItem{
         this.itemQuantity = itemQuantity;
     }
 
-    public ClothingItem(String itemName, double itemPrice) {
-        this.itemName = itemName;
-        this.itemPrice = itemPrice;
-    }
+    //not full constructor (only few variables)
+//    public ClothingItem(String itemName, double itemPrice) {
+//        this.itemName = itemName;
+//        this.itemPrice = itemPrice;
+//    }
+
+    //Default constructor
 
     public ClothingItem() {
 
@@ -83,7 +86,7 @@ public class ClothingItem{
         this.itemPrice=itemPrice-discount;
     }
     public boolean isPremium(){
-        return itemPrice > 15000;
+        return itemPrice >= 15000;
     }
     public boolean isInStock(){
         return itemQuantity > 0;
@@ -93,9 +96,10 @@ public class ClothingItem{
     //Return string with all field values
 
     @Override public String toString() {
-        return "ClothingItem{itemId='"+itemName+"'," +
-                "itemPrice=" + itemPrice +"," +
-                " itemSize='"+itemSize+"', " +
+        return "ClothingItem{itemId="+itemId+", "+
+                "itemName='"+itemName+"', " +
+                "itemPrice=" + itemPrice +", " +
+                "itemSize='"+itemSize+"', " +
                 "itemBrand='"+itemBrand+"', " +
                 "itemQuantity="+itemQuantity+"}";
     }

@@ -7,14 +7,16 @@ public class Customer {
     private String customerName;
     private String preferredSize;
     private int points;
+    private String customerEmail;
 
     //Constructor
 
-    public Customer(int customerId, String customerName, String preferredSize, int points) {
+    public Customer(int customerId, String customerName, String preferredSize, int points, String customerEmail) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.preferredSize = preferredSize;
         this.points = points;
+        this.customerEmail = customerEmail;
     }
 
     //Getters
@@ -31,6 +33,7 @@ public class Customer {
     public int getCustomerPoints() {
         return  points;
     }
+    public String getCustomerEmail() {return customerEmail;}
 
     //Setters
 
@@ -46,11 +49,12 @@ public class Customer {
     public void setPoints(int points) {
         this.points = points;
     }
+    public void setCustomerEmail(String customerEmail) { this.customerEmail = customerEmail; }
 
     //Methods with logic
 
-    public void addPoints(int points){
-        this.points += points;
+    public void addPoints(int newpoints){
+        this.points += newpoints;
     }
     public boolean isVIP(){
         return points >= 1000;
@@ -59,10 +63,11 @@ public class Customer {
     //Override
 
     @Override public String toString() {
-        return "Customer{customerId='"+customerId+"'," +
-                "customerName=" + customerName +"," +
-                " preferredSize='"+preferredSize+"', " +
-                "points="+points+"}";
+        return "Customer{customerId="+customerId+", " +
+                "customerName=" + customerName +", " +
+                "preferredSize='"+preferredSize+"', " +
+                "points="+points+", "+
+                "customerEmail='"+customerEmail+"'}";
     }
 }
 
