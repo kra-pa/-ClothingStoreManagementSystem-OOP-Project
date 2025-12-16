@@ -1,6 +1,6 @@
 package com.krapa.clothingstore;
 
-import java.security.Principal;
+//import java.security.Principal;
 
 public class Main{ // main class
     public static void main(String[] args){
