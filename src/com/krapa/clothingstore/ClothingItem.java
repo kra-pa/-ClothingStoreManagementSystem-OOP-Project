@@ -15,11 +15,11 @@ public class ClothingItem{
 
     public ClothingItem(int itemId, String itemName, double itemPrice, String itemSize, String itemBrand, int itemQuantity) {
         this.itemId = itemId;
-        this.itemName = itemName;
-        this.itemPrice = itemPrice;
-        this.itemSize = itemSize;
-        this.itemBrand = itemBrand;
-        this.itemQuantity = itemQuantity;
+        setItemName(itemName);
+        setItemPrice(itemPrice);
+        setItemSize(itemSize);
+        setItemBrand(itemBrand);
+        setItemQuantity(itemQuantity);
     }
 
     //not full constructor (only few variables)
@@ -28,7 +28,7 @@ public class ClothingItem{
 //        this.itemPrice = itemPrice;
 //    }
 
-    //Default constructor
+    //Default Constructor
 
     public ClothingItem() {
 
@@ -57,25 +57,42 @@ public class ClothingItem{
     }
 
     //Setters
-    //Setting values
+    //Setting values (with validation)
 
     public void setItemId(int itemId) {
         this.itemId = itemId;
     }
     public void setItemName(String itemName) {
-        this.itemName = itemName;
+        if(itemName != null && !itemName.trim().isEmpty()){this.itemName = itemName;}
+        else{
+            System.out.println("Warning: Name cannot be empty! Setting to null.");
+        }
     }
     public void setItemPrice(double itemPrice) {
-        this.itemPrice = itemPrice;
+        if(itemPrice >= 0){this.itemPrice = itemPrice;}
+        else{
+            System.out.println("Warning: Price cannot be negative! Setting to 0.");
+            this.itemPrice = 0;
+        }
     }
     public void setItemSize(String itemSize) {
-        this.itemSize = itemSize;
+        if(itemSize != null && !itemSize.trim().isEmpty()){this.itemSize = itemSize;}
+        else{
+            System.out.println("Warning: Size cannot be empty! Setting to null.");
+        }
     }
     public void setItemBrand(String itemBrand) {
-        this.itemBrand = itemBrand;
+        if(itemBrand != null && !itemBrand.trim().isEmpty()){this.itemBrand = itemBrand;}
+        else {
+            System.out.println("Warning: Brand cannot be empty! Setting to null.");
+        }
     }
     public void setItemQuantity(int itemQuantity) {
-        this.itemQuantity = itemQuantity;
+        if(itemQuantity >= 0){this.itemQuantity = itemQuantity;}
+        else{
+            System.out.println("Warning: Quantity cannot be negative! Setting to 0.");
+            this.itemQuantity = 0;
+        }
     }
 
     //Methods with logic

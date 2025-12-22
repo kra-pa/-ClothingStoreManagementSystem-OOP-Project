@@ -14,9 +14,15 @@ public class Order {
 
     public Order(int orderId, String customerName, double total, String status){
         this.orderId = orderId;
-        this.customerName = customerName;
-        this.total = total;
-        this.status = status;
+        setCustomerName(customerName);
+        setTotal(total);
+        setStatus(status);
+    }
+
+    //Default Constructor
+
+    public Order() {
+
     }
 
     //Getters
@@ -40,13 +46,22 @@ public class Order {
         this.orderId = orderId;
     }
     public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+        if(customerName != null && !customerName.trim().isEmpty()){this.customerName = customerName;}
+        else {
+            System.out.println("Warning: Name cannot be empty! Setting to null.");
+        }
     }
     public void setTotal(double total) {
-        this.total = total;
+        if(total >= 0){this.total = total;}
+        else {
+            System.out.println("Warning: Total price cannot be negative! Setting to 0.");
+        }
     }
     public void setStatus(String status) {
-        this.status = status;
+        if(status != null && !status.trim().isEmpty()){this.status = status;}
+        else {
+            System.out.println("Warning: Status cannot be empty! Setting to null.");
+        }
     }
 
     //Methods with logic
@@ -57,10 +72,10 @@ public class Order {
     public void addAmount(double amount){
         this.total+=amount;
     }
-    public void Complete(){
+    public void complete(){
         this.status = "Completed";
     }
-    public void Cancel(){
+    public void cancel(){
         this.status = "Cancelled";
     }
 

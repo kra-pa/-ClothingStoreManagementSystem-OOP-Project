@@ -1,8 +1,8 @@
 package com.krapa.clothingstore;
 
-//import java.security.Principal;
+//import java.security.Principal; //Authentication, that won't be used for now
 
-public class Main{ // main class
+public class Main2 { // main class
     public static void main(String[] args){
         System.out.println();
         System.out.println("===Clothing Store Management System==="); // Welcome message
@@ -16,6 +16,8 @@ public class Main{ // main class
         System.out.println();
         System.out.println("Name: Kira");
         System.out.println("Course: IT-2505");
+        System.out.println();
+        System.out.println("Here I will add and test getters, setters and additional logical methods");
         System.out.println();
 
         //ClothingItem objects
@@ -119,6 +121,8 @@ public class Main{ // main class
         System.out.println("---TESTING CLOTHINGITEM METHODS");
 
         System.out.println();
+        System.out.println("Premium item starts from 15000");
+        System.out.println();
         System.out.println(cl1.getItemName()+" is premium: "+cl1.isPremium());
         System.out.println(cl2.getItemName()+" is premium: "+cl2.isPremium());
         System.out.println(cl3.getItemName()+" is premium: "+cl3.isPremium());
@@ -157,7 +161,7 @@ public class Main{ // main class
         System.out.println();
         System.out.println("Order "+ord2.getOrderId()+" is pending: "+ord2.isPending());
         System.out.println("Status: "+ord2.getStatus());
-        ord2.Cancel();
+        ord2.cancel();
         System.out.println("Order "+ord2.getOrderId()+" is pending: "+ord2.isPending());
         System.out.println("Status: "+ord2.getStatus());
         System.out.println();
@@ -166,7 +170,7 @@ public class Main{ // main class
         ord1.addAmount(5500.0);
         ord1.addAmount(3000.0);
         System.out.println("Order "+ord1.getOrderId()+" total: "+ord1.getTotal());
-        ord1.Complete();
+        ord1.complete();
         System.out.println("Order "+ord1.getOrderId()+" is pending: "+ord1.isPending());
         System.out.println("Status: "+ord1.getStatus());
         System.out.println();
