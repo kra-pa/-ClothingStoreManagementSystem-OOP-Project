@@ -109,6 +109,13 @@ public class ClothingItem{
         return itemQuantity > 0;
     }
 
+    public void printInfo() {
+        System.out.println(itemName + " is general clothing item.");
+    }
+    public String getItemType() {
+        return "General clothing item";
+    }
+
     //Override
     //Return string with all field values
 
