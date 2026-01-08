@@ -3,12 +3,12 @@ package com.krapa.clothingstore;
 //A clothing piece, contains all necessary variables, constructors, getters, setters, logic methods
 
 public class ClothingItem{
-    private int itemId;
-    private String itemName;
-    private double itemPrice; //Unspecified currency
-    private String itemSize;
-    private String itemBrand;
-    private int itemQuantity;
+    protected int itemId;
+    protected String itemName;
+    protected double itemPrice; //Unspecified currency
+    protected String itemSize;
+    protected String itemBrand;
+    protected int itemQuantity;
 
     //Constructor
     //Assigning values

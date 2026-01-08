@@ -18,7 +18,7 @@ public class Shirt extends ClothingItem {
     // Override method 1
     @Override
     public void printInfo() {
-        System.out.println(getItemName() + " has a " + shirtType + " type");
+        System.out.println(itemName + " has a " + shirtType + " type");
     }
     // Override method 2
     @Override

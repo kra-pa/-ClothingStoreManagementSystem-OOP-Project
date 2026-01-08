@@ -18,7 +18,7 @@ public class Hat extends ClothingItem {
     // Override method 1
     @Override
     public void printInfo() {
-        System.out.println(getItemName() + " has a " + hatType + " type");
+        System.out.println(itemName + " has a " + hatType + " type");
     }
     // Override method 2
     @Override

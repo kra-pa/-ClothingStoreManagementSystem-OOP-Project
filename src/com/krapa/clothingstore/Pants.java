@@ -18,7 +18,7 @@ public class Pants extends ClothingItem {
     // Override method 1
     @Override
     public void printInfo() {
-        System.out.println(getItemName() + " are made of " + pantsMaterial);
+        System.out.println(itemName + " are made of " + pantsMaterial);
     }
     // Override method 2
     @Override
