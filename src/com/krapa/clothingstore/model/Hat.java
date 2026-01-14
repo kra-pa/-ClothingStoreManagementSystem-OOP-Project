@@ -1,4 +1,4 @@
-package com.krapa.clothingstore;
+package com.krapa.clothingstore.model;
 
 public class Hat extends ClothingItem {
     // Additional field specific to Hat
@@ -6,13 +6,17 @@ public class Hat extends ClothingItem {
     // Constructor - uses super() to call parent constructor
     public Hat(int itemId, String itemName, double itemPrice, String itemSize, String itemBrand, int itemQuantity, String hatType) {
         super(itemId, itemName, itemPrice, itemSize, itemBrand, itemQuantity); // MUST BE FIRST!
-        this.hatType = hatType;
+        setHatType(hatType);
     }
     // Getter and Setter for new field
+    //Added exception handling
     public String getHatType() {
         return hatType;
     }
     public void setHatType(String hatType) {
+        if (hatType == null || hatType.trim().isEmpty()) {
+            throw new IllegalArgumentException("Hat type cannot be empty!");
+        }
         this.hatType = hatType;
     }
     // Override method 1
@@ -31,7 +35,7 @@ public class Hat extends ClothingItem {
     }
     // New method specific to Hat
     public boolean isFedora() {
-        return getItemSize().equalsIgnoreCase("Fedora");
+        return getHatType().equalsIgnoreCase("Fedora");
     }
     @Override
     public String toString() {

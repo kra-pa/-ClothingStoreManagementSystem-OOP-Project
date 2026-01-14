@@ -1,8 +1,8 @@
-package com.krapa.clothingstore;
+package com.krapa.clothingstore.model;
 
 //A clothing piece, contains all necessary variables, constructors, getters, setters, logic methods
 
-public class ClothingItem{
+public abstract class ClothingItem{
     protected int itemId;
     protected String itemName;
     protected double itemPrice; //Unspecified currency
@@ -60,47 +60,56 @@ public class ClothingItem{
     //Setting values (with validation)
 
     public void setItemId(int itemId) {
+        if(itemId < 0){
+            throw new IllegalArgumentException("Item ID cannot be negative!");
+        }
         this.itemId = itemId;
     }
     public void setItemName(String itemName) {
-        if(itemName != null && !itemName.trim().isEmpty()){this.itemName = itemName;}
-        else{
-            System.out.println("Warning: Name cannot be empty! Setting to null.");
+        if(itemName == null || itemName.trim().isEmpty())
+        {
+            throw new IllegalArgumentException("Name cannot be empty!");
         }
+        this.itemName = itemName;
     }
     public void setItemPrice(double itemPrice) {
-        if(itemPrice >= 0){this.itemPrice = itemPrice;}
-        else{
-            System.out.println("Warning: Price cannot be negative! Setting to 0.");
-            this.itemPrice = 0;
+        if(itemPrice < 0){
+            throw new IllegalArgumentException("Price cannot be negative!");
         }
+        this.itemPrice = itemPrice;
     }
     public void setItemSize(String itemSize) {
-        if(itemSize != null && !itemSize.trim().isEmpty()){this.itemSize = itemSize;}
-        else{
-            System.out.println("Warning: Size cannot be empty! Setting to null.");
+        if(itemSize == null || itemSize.trim().isEmpty())
+        {
+            throw new IllegalArgumentException("Size cannot be empty!");
         }
+        this.itemSize = itemSize;
     }
     public void setItemBrand(String itemBrand) {
-        if(itemBrand != null && !itemBrand.trim().isEmpty()){this.itemBrand = itemBrand;}
-        else {
-            System.out.println("Warning: Brand cannot be empty! Setting to null.");
+        if(itemBrand == null || itemBrand.trim().isEmpty())
+        {
+            throw new IllegalArgumentException("Brand cannot be empty!");
         }
+        this.itemBrand = itemBrand;
     }
     public void setItemQuantity(int itemQuantity) {
-        if(itemQuantity >= 0){this.itemQuantity = itemQuantity;}
-        else{
-            System.out.println("Warning: Quantity cannot be negative! Setting to 0.");
-            this.itemQuantity = 0;
+        if(itemQuantity < 0){
+            throw new IllegalArgumentException("Quantity cannot be negative!");
         }
+        this.itemQuantity = itemQuantity;
     }
 
     //Methods with logic
     //Adds additional logic methods
 
     public void applyDiscount(double percent){
-        double discount = itemPrice * (percent / 100);
-        this.itemPrice=itemPrice-discount;
+        if (percent < 0 || percent > 100) {
+            throw new IllegalArgumentException("Discount must be between 0 and 100");
+        }
+        else {
+            double discount = itemPrice * (percent / 100);
+            this.itemPrice = itemPrice - discount;
+        }
     }
     public boolean isPremium(){
         return itemPrice >= 15000;
@@ -109,12 +118,11 @@ public class ClothingItem{
         return itemQuantity > 0;
     }
 
-    public void printInfo() {
-        System.out.println(itemName + " is general clothing item.");
-    }
-    public String getItemType() {
-        return "General clothing item";
-    }
+    //Abstract method for getting item info
+    public abstract void printInfo();
+
+    //Abstract method for getting item type
+    public abstract String getItemType();
 
     //Override
     //Return string with all field values

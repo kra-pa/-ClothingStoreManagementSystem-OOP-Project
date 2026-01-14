@@ -1,8 +1,10 @@
-package com.krapa.clothingstore;
+package com.krapa.clothingstore.model;
 
 //Information about a customer (like in ClothingItem)
 
-public class Customer {
+import com.krapa.clothingstore.interfaces.DiscountAvailable;
+
+public class Customer implements DiscountAvailable {
     private int  customerId;
     private String customerName;
     private String preferredSize;
@@ -44,33 +46,34 @@ public class Customer {
     //Setters
 
     public void setCustomerId(int customerId) {
+        if (customerId < 0){
+            throw new IllegalArgumentException("Customer ID cannot be negative!");
+        }
         this.customerId = customerId;
     }
     public void setCustomerName(String customerName) {
-        if(customerName != null && !customerName.trim().isEmpty()){this.customerName = customerName;}
-        else {
-            System.out.println("Warning: Name cannot be empty! Setting to null.");
+        if(customerName == null || customerName.trim().isEmpty()){
+            throw new IllegalArgumentException("Name cannot be empty!");
         }
+        this.customerName = customerName;
     }
     public void setPreferredSize(String preferredSize) {
-        if(preferredSize != null && !preferredSize.trim().isEmpty()){this.preferredSize = preferredSize;}
-        else {
-            System.out.println("Warning: Preferred size cannot be empty! Setting to null.");
+        if(preferredSize == null || preferredSize.trim().isEmpty()){
+            throw new IllegalArgumentException("Preferred size cannot be empty!");
         }
+        this.preferredSize = preferredSize;
     }
     public void setPoints(int points) {
-        if(points >= 0){this.points = points;}
-        else{
-            System.out.println("Warning: Points cannot be negative! Setting to 0.");
-            this.points = 0;
+        if(points < 0){
+            throw new IllegalArgumentException("Points cannot be negative!");
         }
+        this.points = points;
     }
     public void setCustomerEmail(String customerEmail) {
-        if(customerEmail == null || customerEmail.trim().isEmpty()){System.out.println("Warning: Preferred size cannot be empty! Setting to null.");}
-        else if(!customerEmail.contains("@")){System.out.println("Warning: Email must contain @ symbol! Setting to null.");}
-        else {
-            this.customerEmail = customerEmail;
+        if(customerEmail == null || customerEmail.trim().isEmpty() || !customerEmail.contains("@")){
+            throw new IllegalArgumentException("Customer email cannot be empty and must contain @!");
         }
+        this.customerEmail = customerEmail;
     }
 
     //Methods with logic
@@ -78,8 +81,24 @@ public class Customer {
     public void addPoints(int newpoints){
         this.points += newpoints;
     }
-    public boolean isVIP(){
+
+    //Interface override methods
+
+    @Override
+    public boolean isVIP() {
         return points >= 1000;
+    }
+
+    //Discount for VIP: 15%
+
+    @Override
+    public double getDiscount() {
+        if (isVIP()) {
+            return 0.15;
+        }
+        else{
+            return 0;
+        }
     }
 
     //Override

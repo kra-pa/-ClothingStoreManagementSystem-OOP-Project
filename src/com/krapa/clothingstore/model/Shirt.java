@@ -1,4 +1,6 @@
-package com.krapa.clothingstore;
+package com.krapa.clothingstore.model;
+
+import com.krapa.clothingstore.exception.InvalidInputException;
 
 public class Shirt extends ClothingItem {
     // Additional field specific to Shirt
@@ -6,13 +8,17 @@ public class Shirt extends ClothingItem {
     // Constructor - uses super() to call parent constructor
     public Shirt(int itemId, String itemName, double itemPrice, String itemSize, String itemBrand, int itemQuantity, String shirtType) {
         super(itemId, itemName, itemPrice, itemSize, itemBrand, itemQuantity); // MUST BE FIRST!
-        this.shirtType = shirtType;
+        setShirtType(shirtType);
     }
     // Getter and Setter for new field
+    //Added exception handling
     public String getShirtType() {
         return shirtType;
     }
     public void setShirtType(String shirtType) {
+        if (shirtType == null || shirtType.trim().isEmpty()) {
+            throw new IllegalArgumentException("Shirt type cannot be empty!");
+        }
         this.shirtType = shirtType;
     }
     // Override method 1

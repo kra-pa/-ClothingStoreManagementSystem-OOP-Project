@@ -1,10 +1,10 @@
-package com.krapa.clothingstore;
+package com.krapa.clothingstore.model;
 
 //Information about an order (like in ClothingItem)
 
 import java.util.Objects;
 
-public class Order {
+public class Order{
     private int orderId;
     private String customerName;
     private double total; //cost
@@ -43,25 +43,28 @@ public class Order {
     //Setters
 
     public void setOrderId(int orderId) {
+        if(orderId < 0){
+            throw new IllegalArgumentException("Order ID cannot be negative!");
+        }
         this.orderId = orderId;
     }
     public void setCustomerName(String customerName) {
-        if(customerName != null && !customerName.trim().isEmpty()){this.customerName = customerName;}
-        else {
-            System.out.println("Warning: Name cannot be empty! Setting to null.");
+        if(customerName == null || customerName.trim().isEmpty()){
+            throw new IllegalArgumentException("Name cannot be empty!");
         }
+        this.customerName = customerName;
     }
     public void setTotal(double total) {
-        if(total >= 0){this.total = total;}
-        else {
-            System.out.println("Warning: Total price cannot be negative! Setting to 0.");
+        if(total < 0){
+            throw new IllegalArgumentException("Total price cannot be negative!");
         }
+        this.total = total;
     }
     public void setStatus(String status) {
-        if(status != null && !status.trim().isEmpty()){this.status = status;}
-        else {
-            System.out.println("Warning: Status cannot be empty! Setting to null.");
+        if(status == null || status.trim().isEmpty()){
+            throw new IllegalArgumentException("Status cannot be empty!");
         }
+        this.status = status;
     }
 
     //Methods with logic
