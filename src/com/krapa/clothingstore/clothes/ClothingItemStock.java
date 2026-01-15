@@ -196,7 +196,7 @@ public class ClothingItemStock implements Clothes { // main class
         // Loop through all customers
 
         for (int i = 0; i < customers.size(); i++) {
-            Customer customer = customers.get(i); // Get item at index i
+            Customer customer = customers.get(i); // Get customer at index i
             System.out.println((i + 1) + ". " + customer.getCustomerName());
             System.out.println("   Preferred Size: " + customer.getPreferredSize());
             System.out.println("   Points: " + customer.getCustomerPoints());
@@ -258,7 +258,7 @@ public class ClothingItemStock implements Clothes { // main class
         // Loop through all orders
 
         for (int i = 0; i < orders.size(); i++) {
-            Order order = orders.get(i); // Get item at index i
+            Order order = orders.get(i); // Get order at index i
             System.out.println((i + 1) + ". " + order.getCustomerName());
             System.out.println("   Total price: " + order.getTotal());
             if (order.isPending()) {
