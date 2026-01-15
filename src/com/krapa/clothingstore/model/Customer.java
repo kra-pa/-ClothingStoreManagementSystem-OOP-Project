@@ -78,8 +78,8 @@ public class Customer implements DiscountAvailable {
 
     //Methods with logic
 
-    public void addPoints(int newpoints){
-        this.points += newpoints;
+    public void addPoints(int newPoints){
+        this.points += newPoints;
     }
 
     //Interface override methods

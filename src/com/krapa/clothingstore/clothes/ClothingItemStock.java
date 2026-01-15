@@ -312,6 +312,7 @@ public class ClothingItemStock implements Clothes { // main class
     }
 
     // Adds Pants object
+
     private void addPants() {
 
         System.out.println("\n--- ADD PANTS ---");
@@ -346,7 +347,8 @@ public class ClothingItemStock implements Clothes { // main class
         System.out.println("\n✅ Pants added successfully!");
     }
 
-    // Adds Pants object
+    // Adds Hat object
+
     private void addHat() {
 
         System.out.println("\n--- ADD HAT ---");

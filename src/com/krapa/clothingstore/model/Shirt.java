@@ -1,7 +1,5 @@
 package com.krapa.clothingstore.model;
 
-import com.krapa.clothingstore.exception.InvalidInputException;
-
 public class Shirt extends ClothingItem {
     // Additional field specific to Shirt
     private String shirtType;
@@ -17,7 +15,7 @@ public class Shirt extends ClothingItem {
     }
     public void setShirtType(String shirtType) {
         if (shirtType == null || shirtType.trim().isEmpty()) {
-            throw new IllegalArgumentException("Shirt type cannot be empty!");
+            throw new IllegalArgumentException("Shirt type cannot be null or empty");
         }
         this.shirtType = shirtType;
     }
