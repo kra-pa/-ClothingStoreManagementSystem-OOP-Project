@@ -458,7 +458,7 @@ public class ClothingItemStock implements Clothes { // main class
 
                     System.out.println(count + ". Shirt ID: " + shirt.getItemId());
                     System.out.println("   Name: " + shirt.getItemName());
-                    System.out.println("   Price: " + shirt.getItemPrice() + " KZT");
+                    System.out.println("   Price: " + shirt.getItemPrice());
                     System.out.println("   Size: " + shirt.getItemSize());
                     System.out.println("   Brand: " + shirt.getItemBrand());
                     System.out.println("   Quantity: " + shirt.getItemQuantity());
@@ -498,7 +498,7 @@ public class ClothingItemStock implements Clothes { // main class
 
                     System.out.println(count + ". Pants ID: " + pants.getItemId());
                     System.out.println("   Name: " + pants.getItemName());
-                    System.out.println("   Price: " + pants.getItemPrice() + " KZT");
+                    System.out.println("   Price: " + pants.getItemPrice());
                     System.out.println("   Size: " + pants.getItemSize());
                     System.out.println("   Brand: " + pants.getItemBrand());
                     System.out.println("   Quantity: " + pants.getItemQuantity());
@@ -539,7 +539,7 @@ public class ClothingItemStock implements Clothes { // main class
 
                     System.out.println(count + ". Hat ID: " + hat.getItemId());
                     System.out.println("   Name: " + hat.getItemName());
-                    System.out.println("   Price: " + hat.getItemPrice() + " KZT");
+                    System.out.println("   Price: " + hat.getItemPrice());
                     System.out.println("   Size: " + hat.getItemSize());
                     System.out.println("   Brand: " + hat.getItemBrand());
                     System.out.println("   Quantity: " + hat.getItemQuantity());
