@@ -155,7 +155,7 @@ public class ClothingItemStock implements Clothes { // main class
         System.out.print("Enter customer name: ");
         String customerName = scanner.nextLine(); // Read string
         System.out.print("Enter preferred size: ");
-        String preferredSize = scanner.nextLine(); // Read double
+        String preferredSize = scanner.nextLine();
         System.out.print("Enter amount of customer points: ");
         int points = scanner.nextInt();
         scanner.nextLine(); // Consume newline
