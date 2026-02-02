@@ -9,7 +9,7 @@ public abstract class ClothingItem{
     protected String itemSize;
     protected String itemBrand;
     protected int itemQuantity;
-
+    protected String itemType;
     //Constructor
     //Assigning values
 
@@ -99,6 +99,13 @@ public abstract class ClothingItem{
         this.itemQuantity = itemQuantity;
     }
 
+    protected void setItemType(String itemType) {
+        if(itemType == null || itemType.trim().isEmpty())
+        {
+            throw new IllegalArgumentException("Type cannot be empty!");
+        }
+        this.itemType = itemType;
+    }
     //Methods with logic
     //Adds additional logic methods
 

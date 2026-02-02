@@ -42,26 +42,26 @@ public class Order{
 
     //Setters
 
-    public void setOrderId(int orderId) {
-        if(orderId < 0){
+    public void setOrderId(int orderId){
+        if(orderId<0){
             throw new IllegalArgumentException("Order ID cannot be negative!");
         }
         this.orderId = orderId;
     }
-    public void setCustomerName(String customerName) {
+    public void setCustomerName(String customerName){
         if(customerName == null || customerName.trim().isEmpty()){
-            throw new IllegalArgumentException("Name cannot be empty!");
+            throw new IllegalArgumentException("Customer name cannot be empty!");
         }
         this.customerName = customerName;
     }
-    public void setTotal(double total) {
-        if(total < 0){
-            throw new IllegalArgumentException("Total price cannot be negative!");
+    public void setTotal(double total){
+        if(total<0){
+            throw new IllegalArgumentException("Total cannot be negative!");
         }
         this.total = total;
     }
-    public void setStatus(String status) {
-        if(status == null || status.trim().isEmpty()){
+    public void setStatus(String status){
+        if (status == null || status.trim().isEmpty()) {
             throw new IllegalArgumentException("Status cannot be empty!");
         }
         this.status = status;

@@ -3,10 +3,13 @@ package com.krapa.clothingstore.model;
 public class Shirt extends ClothingItem {
     // Additional field specific to Shirt
     private String shirtType;
+    private String itemType;
     // Constructor - uses super() to call parent constructor
     public Shirt(int itemId, String itemName, double itemPrice, String itemSize, String itemBrand, int itemQuantity, String shirtType) {
         super(itemId, itemName, itemPrice, itemSize, itemBrand, itemQuantity); // MUST BE FIRST!
         setShirtType(shirtType);
+        this.shirtType = shirtType;
+        setItemType("SHIRT");
     }
     // Getter and Setter for new field
     //Added exception handling
@@ -19,6 +22,7 @@ public class Shirt extends ClothingItem {
         }
         this.shirtType = shirtType;
     }
+
     // Override method 1
     @Override
     public void printInfo() {
@@ -27,7 +31,7 @@ public class Shirt extends ClothingItem {
     // Override method 2
     @Override
     public String getItemType() {
-        return "Shirt";
+        return "SHIRT";
     }
     // New method specific to Shirt
     public boolean isTShirt() {
